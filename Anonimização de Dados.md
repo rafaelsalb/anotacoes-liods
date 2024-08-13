@@ -17,10 +17,43 @@ A ideia aqui é estipular um limite superior, significando que um conjunto de da
 Nessa etapa, são aplicadas as técnicas de anonimização no conjunto de dados escolhido.
 ### Terceira etapa: determinar o Risco de Reidentificação Mensurado
 Na penúltima etapa, o RRM (Risco de Reidentificação Mensurável) é calculado, a fim de classificar a anonimização como bem-sucedida ou não. Para isso, compara-se a probabilidade representada pelo RRM com o RRA.
-Caso o RRM seja maior que o RRA, a anonimização foi mal sucedido, e o processo deve partir do início.
+Caso o RRM seja maior que o RRA, a anonimização foi mal sucedida, e o processo deve partir do início.
 #### Medindo o RRM
+Tomemos como exemplo a [[#^374a0d |Figura 2]]
+###### Figura 2
+^374a0d
 
+![[Exemplo Anonimização.excalidraw]]
+Esse é um conjunto de dados que mostra informações sobre os estudantes de uma universidade qualquer.
+
+É importante conhecer o conceito de **Equivalência de Classe**.
+> [!info] Equivalência de Classe
+> Duas classes são consideradas equivalentes quando compartilham os mesmos valores em determinado campo.
+
+Dividindo o nosso exemplo por equivalência de classes, temos:
+###### Figura 3
+![[Equivalência de classes 1.excalidraw]]
+Aqui, a equivalência de classes é igual a 3.
+###### Figura 4
+![[Equivalência de classes 2.excalidraw]]
+Equivalência de classes = 1
+###### Figura 5
+![[Equivalência de classes 3.excalidraw]]
+Equivalência de classes = 1
+
+Em geral, quanto menor for o grau de equivalência de classes, maior é a chance de o dado ser único (e portanto, identificável), e maior é o risco de reidentificação. Isso fica mais claro quando expressamos as probabilidades numéricas:
+
+| Curso                 | Risco de reidentificação |
+| --------------------- | ------------------------ |
+| Ciência da Computação | 33%                      |
+| Design                | 100%                     |
+| Jornalismo            | 100%                     |
+| TODOS                 | 77.66%                   |
+O RRM é, então:
+$$Risco\ de\ Reidentificação\ Mensurado=V_c\ * \theta$$
+> **θ**: valor geral da métrica contextual.
+> **Vc**: fator de ponderação das variáveis contextuais. Pode existir ou não (assumindo o valor de 1, nesse caso).
+
+No caso de bases de dados públicas ou compartilhadas, é boa prática considerar o risco maior do que realmente é, como medida de segurança. O motivo disso é que um atacante teria acesso aos dados e poderia executar diversos procedimentos para reidentificar registros.
 ## Fontes
 * https://www.gov.br/anpd/pt-br/documentos-e-publicacoes/documentos-de-publicacoes/estudo_tecnico_sobre_anonimizacao_de_dados_na_lgpd_uma_visao_de_processo_baseado_em_risco_e_tecnicas_computacionais.pdf
-* https://www.fazenda.mg.gov.br/transparencia/lgpd/LGPD-SEF-Anonimizacao-pseudonimizacao-de-dados.pdf
-* 
