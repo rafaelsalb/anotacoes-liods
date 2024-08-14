@@ -57,3 +57,4 @@ $$Risco\ de\ Reidentificação\ Mensurado=V_c\ * \theta$$
 No caso de bases de dados públicas ou compartilhadas, é boa prática considerar o risco maior do que realmente é, como medida de segurança. O motivo disso é que um atacante teria acesso aos dados e poderia executar diversos procedimentos para reidentificar registros.
 ## Fontes
 * https://www.gov.br/anpd/pt-br/documentos-e-publicacoes/documentos-de-publicacoes/estudo_tecnico_sobre_anonimizacao_de_dados_na_lgpd_uma_visao_de_processo_baseado_em_risco_e_tecnicas_computacionais.pdf
+* https://www.pdpc.gov.sg/-/media/files/pdpc/pdf-files/advisory-guidelines/guide-to-basic-anonymisation-(updated-24-july-2024).pdf
